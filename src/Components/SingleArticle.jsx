@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const SingleArticle = () => {
 const [isLoading, setIsLoading] = useState(true)
-const [article, setArticle] = useState({})
+const [article, setArticle] = useState(null)
 const { article_id } = useParams()
 useEffect(() => {
     if (article_id) {
