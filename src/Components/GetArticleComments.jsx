@@ -30,7 +30,7 @@ useEffect(() => {
                 <p className="comment-user">{comment.author}</p>
               <p className="comment-date">Posted on: {comment.created_at}</p>
               <p className="comment-body">{comment.body}</p>
-              {comment.votes >=1 ? (
+              {comment.votes >=0 ? (
               <p className="positive-vote comment-votes">👍 {comment.votes}</p>)
                : ( <p className="negative-vote comment-votes">👎 {comment.votes}</p> )
                }
