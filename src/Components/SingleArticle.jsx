@@ -1,6 +1,7 @@
 import {getSingleArticle} from "../utility/api"
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import GetArticleComments from "./GetArticleComments";
 
 const SingleArticle = () => {
 const [isLoading, setIsLoading] = useState(true)
@@ -20,7 +21,7 @@ useEffect(() => {
 
       if (isLoading) return <p>Loading...</p>;
       
-      return (
+      return (<>
         <section className="single-article-container">
           <div key={article.article_id} className="single-article-div">
             <h2>{article.title}</h2>
@@ -28,6 +29,12 @@ useEffect(() => {
             <p>{article.body}</p>
           </div>
         </section>
+        <section className="comment-container">
+          <h2 className="comment-tile">User Comments</h2>
+        <GetArticleComments />
+        </section>
+        </>
+
       )
     }
 

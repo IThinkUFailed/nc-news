@@ -112,9 +112,10 @@ body {
   margin: 0;
   padding: 0;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 60vh;
   background-color: #242424;
   display: block; 
+  margin-bottom: 0;
 }
 .single-article-container {
   display: grid;;
@@ -126,6 +127,7 @@ body {
   width: 80%; 
   margin: 0 auto; 
   grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 0;
 }
 .single-article-div h2 {
 font-weight: 600;
@@ -156,4 +158,66 @@ text-align:center;
   .navbar a:hover{
     color:black;
     background-color:white;
+  }
+
+  .comment-container {
+    display: grid;
+    gap: 10px; 
+    max-width: 80%;
+    width: 80%; 
+    margin-top:0px;
+    margin: 0 auto; 
+    margin-bottom: 20px;
+  
+  }
+
+  .comment-div {
+    background-color: #0c0c0c2d;
+    padding: 10px;
+    text-align: left;
+    margin-top:20px;
+    border-radius: 8px;
+  }
+  .comment-votes {
+    font-size:18px;
+    padding-left: 10px;
+    display:inline-block;
+    transition: all .2s ease-in-out; 
+    font-weight:600;
+    transition:.5s;
+    
+  }
+  .comment-user {
+    font-weight: 800;
+    margin:0;
+    
+  }
+  .negative-vote {
+    color:red;
+    }
+
+  .positive-vote {
+      color:green;
+        
+    }
+
+  .comment-date {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .comment-title h2 {
+    font-size:300px;
+    text-align: center;
+  }
+
+  .comment-container h2 {
+    display: grid;
+    text-align:center;
+    gap: 10px; 
+    max-width: 80%;
+    width: 80%; 
+    margin-top:0px;
+    margin: 0 auto; 
+    margin-bottom: 0;
   }
