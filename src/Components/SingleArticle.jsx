@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import GetArticleComments from "./GetArticleComments";
 import UpvoteArticle from "./UpvoteArticle";
+import PostComment from "./PostComment";
+import LoadingSpinner from "./LoadingSpinner";
 const SingleArticle = () => {
   const [votes, setVotes] = useState(0)
 const [isLoading, setIsLoading] = useState(true)
@@ -22,7 +24,7 @@ useEffect(() => {
     }
   }, [article_id]);
 
-      if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <div className="loading"><LoadingSpinner/></div>
       
       return (
       <article>
@@ -38,6 +40,7 @@ useEffect(() => {
         </section>
         <section className="comment-container">
           <h2 className="comment-tile">User Comments</h2>
+          <PostComment article_id={article_id}/>
         <GetArticleComments />
         </section>
         </article>

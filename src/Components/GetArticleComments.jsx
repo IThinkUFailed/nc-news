@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { getSingleArticleComments } from "../utility/api";
+import LoadingSpinner from "./LoadingSpinner";
 const GetArticleComments = () => {
     
 const [comments, setComments] = useState(null)
@@ -16,7 +17,7 @@ useEffect(() => {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <LoadingSpinner/>
   if (comments.length === 0) {
     return (<p className="comment-container comment-div">No commments found, why not post one?</p>)
   }

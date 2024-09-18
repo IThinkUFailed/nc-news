@@ -1,7 +1,7 @@
 import {getAllArticles} from "../utility/api"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import LoadingSpinner from "./LoadingSpinner";
 const AllArticles = () => {
 const [isLoading, setIsLoading] = useState(true)
 const [results, setResults] = useState([])
@@ -12,7 +12,7 @@ const [results, setResults] = useState([])
       })
       },[]);
 
-      if (isLoading) return <p>Loading...</p>;
+      if (isLoading) return <div className="loading"><LoadingSpinner/></div>
       
       return (
         <section className="articles-container">
