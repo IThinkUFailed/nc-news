@@ -14,7 +14,6 @@ const PostComment = ({article_id}) =>{
             alert("Enter a comment first!")
         } else if (comment.length !== 0) {
             setIsSubmitting(true)
-            console.log(comment)
               addCommentToArticle(article_id, comment, currUser).then((data)=>{
                 setIsSubmitting(false)
                 setComment('')
@@ -27,6 +26,7 @@ const PostComment = ({article_id}) =>{
         <form onSubmit={handleSubmit} className="comment-container" >
           <label htmlFor="comment-box"></label>
           <p>Post Comment</p>
+          {comment.length === 0 ? <p className="comment-error">Please enter a comment!</p> : <p></p>}
           <input value={comment}
             onChange={(e) => {
                 setComment(e.target.value);
