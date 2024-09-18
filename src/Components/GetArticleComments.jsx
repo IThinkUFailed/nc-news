@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { getSingleArticleComments } from "../utility/api";
 import LoadingSpinner from "./LoadingSpinner";
+import PostComment from "./PostComment";
 const GetArticleComments = () => {
     
 const [comments, setComments] = useState(null)
@@ -15,7 +16,7 @@ useEffect(() => {
         console.error(err)
         setIsLoading(false)
       });
-  }, []);
+  }, [comments]);
 
   if (isLoading) return <LoadingSpinner/>
   if (comments.length === 0) {
@@ -25,6 +26,7 @@ useEffect(() => {
 
     return (
         <section className="comment-container">
+                      <PostComment article_id={article_id}/>
           {comments.map((comment) => (
             <div key={comment.comment_id} className="comment-div">
                 <p className="comment-user">{comment.author}</p>

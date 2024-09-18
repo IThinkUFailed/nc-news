@@ -40,7 +40,6 @@ useEffect(() => {
         </section>
         <section className="comment-container">
           <h2 className="comment-tile">User Comments</h2>
-          <PostComment article_id={article_id}/>
         <GetArticleComments />
         </section>
         </article>
