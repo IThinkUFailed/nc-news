@@ -13,6 +13,7 @@ const UpvoteArticle = ({article_id}) =>{
           });
         }
       }, [article_id]);
+      
     const handleLike = () => {
         setVotes((votes) => votes +1);
         setError(null);

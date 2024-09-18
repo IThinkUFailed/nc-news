@@ -33,3 +33,16 @@ export const getSingleArticle = (article_id) => {
       console.log(data)
     })
   }
+
+  export const addCommentToArticle = (article_id, comment, currUser) => {
+    const url = `https://nc-news-px9w.onrender.com/api/articles/${article_id}/comments`;
+    console.log(article_id, comment, currUser)
+    return axios.post(url, {
+      username: currUser,
+      body: comment
+    }).then((data)=>{
+      console.log(data)
+    }).catch((err) => {
+      console.error('Error posting comment:', err);  // Catch and log any errors
+    });
+  }
