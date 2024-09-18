@@ -24,3 +24,12 @@ export const getSingleArticle = (article_id) => {
         return data.comments;
       })
   }
+
+  export const incrementArticleVote = (article_id, amount) => {
+    const url = `https://nc-news-px9w.onrender.com/api/articles/${article_id}`;
+    return axios.patch(url, {
+      inc_votes: amount 
+    }).then(({data})=>{
+      console.log(data)
+    })
+  }
