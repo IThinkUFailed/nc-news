@@ -178,6 +178,34 @@ text-align:center;
     margin-top:20px;
     border-radius: 8px;
   }
+  .article-votes {
+    margin: 0;
+    font-size:12px;
+    text-align:right;
+    margin-top:10px;
+    padding-left: 10px;
+    padding-right:25%;
+    font-weight:600;
+    transition:.5s;
+  }
+  .article-votes-text {
+    font-size:14px;
+    text-align:right;
+    margin: 0;
+    padding-left: 10px;
+    padding-right:26%;
+    font-weight:400;
+    transition:.5s;
+  }
+  .article-vote-button {
+    font-size:14px;
+    transition: all .2s ease-in-out; 
+  }
+  .article-vote-button:hover {
+    transition: all .2s ease-in-out; 
+    transform: scale(1.2); 
+    background-color: #b609098e;
+  }
   .comment-votes {
     font-size:18px;
     padding-left: 10px;
