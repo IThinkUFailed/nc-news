@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { addCommentToArticle } from "../utility/api";
-
-const PostComment = ({article_id}) =>{
+import { addCommentToArticle, getSingleArticleComments } from "../utility/api";
+const PostComment = ({article_id, setComments}) =>{
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [comment, setComment] = useState('');
     const currUser = "grumpy19"
@@ -13,10 +12,23 @@ const PostComment = ({article_id}) =>{
         if (comment.length === 0) { 
             e.preventDefault();
         } else if (comment.length !== 0) {
-            setIsSubmitting(true)
-              addCommentToArticle(article_id, comment, currUser).then((data)=>{
-                setIsSubmitting(false)
-                setComment('')
+          addCommentToArticle(article_id, comment, currUser)
+          .then((newComment) => {
+            // create the entire comment object so it works
+            const fullComment = {
+              ...newComment,
+              article_id: Math.random(), // we handle this on api
+              author: currUser, // current logged in user
+              body: comment, // body of comment
+              created_at: Date.now(),
+              votes: 0,
+            };
+            setComments((prevComments) => [fullComment, ...prevComments]);
+            setComment('');
+            setIsSubmitting(false);
+          })
+              .catch((err)=>{
+                console.err("we broke:", err)
               })
         }
     };
@@ -34,8 +46,8 @@ const PostComment = ({article_id}) =>{
             label="post comment"
             ></input>
           <div>
-            <button className="Submit" type="submit">
-              Submit Comment
+            <button className="Submit" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit Comment'}
             </button>
           </div>
         </form>

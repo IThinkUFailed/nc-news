@@ -17,8 +17,8 @@ const [results, setResults] = useState([])
       return (
         <section className="articles-container">
           {results.map((article, index) => (
-              <Link to={`/article/${article.article_id}` }>
-            <div key={article.article_id || index+Math.random()} className="article-div">
+              <Link key={article.article_id || index+Math.random()} to={`/article/${article.article_id}` }>
+            <div className="article-div">
               <h3>{article.title}</h3>
               <img src={article.article_img_url} alt={article.title} />
             </div>
