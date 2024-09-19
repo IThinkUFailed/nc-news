@@ -1,9 +1,12 @@
+import LoggedInUser from "./LoggedInUser";
 import Navbar from "./Navbar";
 const Header = () => {
 
     return (<>
-        <h1 className="header" >NC NEWS</h1>
+        <a href="/" className="header-link"> <h1 className="header" >NC NEWS</h1></a>
         <Navbar/>
+        <LoggedInUser />
+        
         </>
         )
 

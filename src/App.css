@@ -4,9 +4,10 @@
   }
   .header {
     background-color: red;
-    text-align: center;
+    text-align:left;
     margin-top: 0px;
     margin-bottom: 0px;
+    z-index: 1;
   }
   
   .articles-container {
@@ -53,10 +54,13 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
   background-color: red;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
+  z-index: 1;
 }
 .article-div:hover {
   background-color: #b609098e;
@@ -142,13 +146,17 @@ text-align:center;
   }
   .navbar {
     margin-top: -1px;
+margin-left:40%;
+margin-right:40%;
     border-top: black;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgba(255, 0, 0, 0.817);
     text-align: center;
+    float:auto;
     color:white;
     padding: .5em;
+    z-index: 2;
   }
 
   .navbar a{
@@ -248,4 +256,44 @@ text-align:center;
     margin-top:0px;
     margin: 0 auto; 
     margin-bottom: 0;
+  }
+  .delete-comment {
+    float:right;
+    display: grid;
+    text-align: center;
+    background-color: #b6090943;
+    transition: all .2s ease-in-out; 
+    font-weight: 600;
+  }
+  .delete-comment:hover {
+    float: right;
+    color: white;
+    background-color:red;
+    transition: all .2s ease-in-out; 
+    transform: scale(1.1); 
+    font-weight: 600;
+  }
+  .loggedInUser {
+    position: sticky;
+    top: 0;
+    margin-top: -39px;
+font-size:12px;
+    border-top: black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.817);
+    text-align: right;
+    float:right;
+    color:white;
+    padding: .5em;
+    z-index: 3;
+  }
+  .header-link {
+    color:white;
+  }
+  .header-link:hover {
+    color:black;
+    border-color:white;
+    background-color: white;
+
   }
