@@ -1,12 +1,12 @@
 import {getAllArticles} from "../utility/api"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import GetTopics from "./GetTopics";
-const AllArticles = () => {
+const GetArticlesByTopic = () => {
 const [isLoading, setIsLoading] = useState(true)
 const [results, setResults] = useState([])
-const [topic, setTopic] = useState('');
+const { topic} = useParams()
 let filteredArticles
     useEffect(()=> {
       getAllArticles().then((data)=>{
@@ -19,8 +19,6 @@ let filteredArticles
       // If the topic is selected then filter
       if (topic) {
         filteredArticles = results.filter((article) => article.topic === topic);
-      } else { // else we just want it to be the normal results
-        filteredArticles = results;
       }
   
 
@@ -28,7 +26,6 @@ let filteredArticles
     
       return (
         <>
-          <GetTopics setTopic={setTopic} /> {/* Let GetTopics set the topic as it's the selector component */}
           <section className="articles-container">
             {filteredArticles.map((article) => (
               <Link key={article.article_id} to={`/article/${article.article_id}`}>
@@ -43,4 +40,4 @@ let filteredArticles
       )
     }
 
-export default AllArticles
+export default GetArticlesByTopic
