@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-const Navbar = ({topic}) => {
+import GetTopicsAsButtons from "./GetTopicsAsButtons";
+const Navbar = () => {
   return (    <>
     <nav className="navbar">
-      <Link to="/">Home</Link>
+      <GetTopicsAsButtons />
     </nav>
     </>
   );
