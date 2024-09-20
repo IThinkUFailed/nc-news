@@ -51,3 +51,10 @@ export const getSingleArticle = (article_id) => {
       console.error('Error deleting comment:', err)
     })
   }
+  export const getAllTopics = () => {
+    const url = "https://nc-news-px9w.onrender.com/api/topics";
+    return axios.get(url).then(({ data }) => {
+      console.log(data.topics)
+        return data.topics
+    })
+}
