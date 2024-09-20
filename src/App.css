@@ -290,10 +290,18 @@ font-size:12px;
   }
   .header-link {
     color:white;
+    cursor:pointer;
   }
   .header-link:hover {
     color:black;
     border-color:white;
     background-color: white;
+    cursor:pointer;
 
+  }
+  .topic-title {
+font-weight: 400;
+      }
+  .topic {
+float:right;
   }
