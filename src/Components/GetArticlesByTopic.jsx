@@ -2,7 +2,6 @@ import {getAllArticles} from "../utility/api"
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
-import GetTopics from "./GetTopics";
 const GetArticlesByTopic = () => {
 const [isLoading, setIsLoading] = useState(true)
 const [results, setResults] = useState([])
@@ -10,12 +9,13 @@ const { topic} = useParams()
 let filteredArticles
     useEffect(()=> {
       getAllArticles().then((data)=>{
+        console.log("new data")
         setResults(data.articles)
         setIsLoading(false)
       })
 
   
-      },[]);
+      },[topic]);
       // If the topic is selected then filter
       if (topic) {
         filteredArticles = results.filter((article) => article.topic === topic);

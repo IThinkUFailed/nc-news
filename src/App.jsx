@@ -12,7 +12,7 @@ function App() {
     <Router>
     <Header />
     <Routes>
-      <Route path="/" element={<AllArticles />} setTopic={setTopic} topic={topic} />
+      <Route path="/" element={<AllArticles />} setTopic={setTopic} topic={topic}/>
       <Route path="/article/:article_id" element={<SingleArticle/>} />
       <Route path="/topics/:topic" element={<GetArticlesByTopic/>} />
     </Routes>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 import GetTopics from "./GetTopics";
+import SortBy from "./SortBy";
 const AllArticles = () => {
 const [isLoading, setIsLoading] = useState(true)
 const [results, setResults] = useState([])
@@ -22,7 +23,6 @@ let filteredArticles
       } else { // else we just want it to be the normal results
         filteredArticles = results;
       }
-  
 
       if (isLoading) return <div className="loading"><LoadingSpinner/></div>
     
@@ -35,6 +35,7 @@ let filteredArticles
                 <div className="article-div">
                   <h3>{article.title}</h3>
                   <img src={article.article_img_url} alt={article.title} />
+                  <p className="article-votes">❤️ {article.votes}</p>
                 </div>
               </Link>
             ))}
